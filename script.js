@@ -97,14 +97,13 @@ return{
         btnn=document.querySelectorAll("#btn")
        btnn.forEach(function (btnn){ btnn.addEventListener("click",function(){
        let remo=document.getElementById(myLibrary1.indexOf(books).toString())
+       remo.remove()
        myLibrary1.splice(myLibrary1.indexOf(books),1)
        saveArray()
-       remo.remove()
    })})
 }
     function toogleStatus(books){
         let information3=document.getElementById(`${-myLibrary1.indexOf(books)-1}`)
-        console.log(information3)
         let btnn2=document.querySelectorAll("#btn2")
     btnn2.forEach(function (btnn2){ btnn2.addEventListener("click",function(){
        if(information3.textContent===`Status:Did not read it yet.`){
