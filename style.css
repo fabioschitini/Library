@@ -1,38 +1,122 @@
-#books{
-    display: flex;
-justify-content:flex-start;
-align-items: center;
-position: relative;
-top:100px;
-border: 10px solid;
-flex-wrap: wrap}
+#books {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  top: 100px;
+  border: 10px solid;
+  flex-wrap: wrap;
+}
 
-h1{
-    height:25rem;
-    border : 10px solid red;
-    
+h1 {
+  height: 25rem;
+  border: 10px solid red;
 }
-button{
+button {
 }
-#btn{
-    position: relative;
-    left: 50%;
-    top: 80%;
+#btn {
+  position: relative;
+  left: 50%;
+  top: 60%;
+  background-color: black;
+  color: darkgray;
+  border-radius: 20px 16px 12px 32px;
 }
-#btn2{
-    position: relative;
-    left: -15%;
-    top: 60%;
+#btn2 {
+  position: relative;
+  left: -15%;
+  top: 60%;
+  background-color: black;
+  color: darkgray;
+  border-radius: 20px 16px 12px 32px;
 }
-#new{
-    position: relative;
-    left: 50%;
-    height: 46px;
+#new {
+  position: relative;
+    height: 20px;
     font-size: 20px;
     font-style: italic;
+    border-radius: 22px 16px 12px 12px;
+    background-color: crimson;
 }
-p{
-    font-size: 25px;
-    font-style: italic;
-    font-weight: 100;
+}
+p {
+  font-size: 25px;
+  font-style: italic;
+  font-weight: 100;
+}
+
+input:valid {
+  border: 2px solid black;
+}
+input:invalid {
+  border: 2px dashed red;
+}
+input:invalid:required {
+  background-image: linear-gradient(to right, black, rgb(130, 206, 130));
+}
+
+body {
+  background: #ffc967;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+*:before,
+*:after {
+  content: "";
+  position: absolute;
+}
+.book {
+  width: 280px;
+  height: 420px;
+  top: 50%;
+  left: 50%;
+  background: #f33139;
+  border-radius: 20px 16px 12px 32px;
+  background-image: linear-gradient(
+    to right,
+    #d11f2f 48px,
+    #ba0716 50px,
+    transparent 50px
+  );
+  //box-shadow:  2px 6px 40px 0px #FEA600
+}
+
+.white {
+  height: 52px;
+  width: 274px;
+  top: 100px;
+  right: 0px;
+  background: white;
+  border-radius: 32px 4px 4px 32px;
+  box-shadow: inset 4px 6px 0px 0px #e4e0ce;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 6px,
+    #e4e0ce 8px,
+    transparent 8px,
+    transparent 12px,
+    #e4e0ce 12px,
+    transparent 14px,
+    transparent 18px,
+    #e4e0ce 18px,
+    transparent 20px,
+    transparent 24px,
+    #e4e0ce 24px,
+    transparent 26px,
+    transparent 30px,
+    #e4e0ce 30px,
+    transparent 32px,
+    transparent 36px,
+    #e4e0ce 36px,
+    transparent 38px,
+    transparent 42px,
+    #e4e0ce 42px,
+    transparent 44px,
+    transparent 48px,
+    #e4e0ce 48px,
+    transparent 50px
+  );
 }

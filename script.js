@@ -10,18 +10,20 @@ const Library=(title,author,pages)=>{
 }
 
 function addBookToLibrary() {
-    let title= prompt("What book would you like to find?")
-    let author= prompt("Who is the author of the book?")
-   let pages= prompt("How many pages does the book have?")
-   myLibrary1.push( Library(title,author,pages))
+    let title= document.getElementById("title")
+    let author=  document.getElementById("author")
+    let pages = document.getElementById("pages")
+    console.log(title.value)
+    myLibrary1.push(Library(title.value, author.value, pages.value))
 }
 
 function clickButton(){
-let btn= document.querySelector("#new")
-btn.addEventListener("click",bookDisplay)
-let btnn=document.querySelectorAll("#btn")
-let btnn2=document.querySelectorAll("#btn2")
-btn.addEventListener("click",saveArray)
+    let btn = document.querySelector("form")
+    btn.addEventListener("submit", addBookToLibrary)
+
+btn.addEventListener("submit",bookDisplay)
+
+btn.addEventListener("submit",saveArray)
 }
 
 clickButton()
@@ -29,7 +31,6 @@ clickButton()
 
 
 function bookDisplay(){
-   addBookToLibrary()
     myLibrary1.slice(myLibrary1.length-1).forEach(books=>{
         createBooks.DomInsert(books)
         toogleStatus(books)
@@ -48,7 +49,6 @@ function lookForArray(){
 }
 function loadSaved(){
     lookForArray()
-    console.log(myLibrary1)
     myLibrary1.forEach(books=>{
         createBooks.DomInsert(books)
         toogleStatus(books)
@@ -60,14 +60,18 @@ const createBooks=setOnLibrary()
   function setOnLibrary(){
       
       function DomInsert(books){
+         
         let container=document.querySelector("#books");
         let butto=document.createElement("button") 
        let book=document.createElement("h1") 
-       let butto2=document.createElement("button") 
+          let butto2 = document.createElement("button") 
+          let white=document.createElement("div")
            book.textContent=books.title
-           book.id=myLibrary1.indexOf(books)
+          book.id = myLibrary1.indexOf(books)
+          book.className="book"
            butto.id="btn"
            butto2.id="btn2"
+           white.className="white"
    
            butto.textContent="Delete"
            butto2.textContent="Toogle"
@@ -76,7 +80,6 @@ const createBooks=setOnLibrary()
        let information2=document.createElement("p")
        let information3=document.createElement("p") 
        information3.id=-myLibrary1.indexOf(books)-1
-       console.log(information3.id)
            information.textContent=`Author:${books.author}`
            information2.textContent=`Pages:${books.pages}`
            information3.textContent=`Status:Did not read it yet.`
@@ -86,7 +89,9 @@ const createBooks=setOnLibrary()
            book.appendChild(butto2)
            book.appendChild(information)
            book.appendChild(information2)
-           book.appendChild(information3)
+          book.appendChild(information3)
+             book.appendChild(white)
+
       }
       
 return{
@@ -107,11 +112,9 @@ return{
         let btnn2=document.querySelectorAll("#btn2")
     btnn2.forEach(function (btnn2){ btnn2.addEventListener("click",function(){
        if(information3.textContent===`Status:Did not read it yet.`){
-           console.log("if")
            information3.textContent=`Status:Already read it!`
        }
        else if(information3.textContent===`Status:Already read it!`){
-        console.log("else if")
 
         information3.textContent=`Status:Did not read it yet.`
        }
