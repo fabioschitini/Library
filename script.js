@@ -1,4 +1,5 @@
-  let myLibrary1 = [];
+
+let myLibrary1 = [];
   window.addEventListener('load', loadSaved);
   
 const Library=(title,author,pages)=>{
@@ -17,12 +18,9 @@ function addBookToLibrary() {
     myLibrary1.push(Library(title.value, author.value, pages.value))
 }
 
-function clickButton(){
+function clickButton() {
     let btn = document.querySelector("form")
     btn.addEventListener("submit", addBookToLibrary)
-
-btn.addEventListener("submit",bookDisplay)
-
 btn.addEventListener("submit",saveArray)
 }
 
@@ -30,13 +28,7 @@ clickButton()
    
 
 
-function bookDisplay(){
-    myLibrary1.slice(myLibrary1.length-1).forEach(books=>{
-        createBooks.DomInsert(books)
-        toogleStatus(books)
-        removeBooks(books)   
-    } )
-}
+
 
 function saveArray(){
     let myLibrary_serialized=JSON.stringify(myLibrary1)
@@ -51,8 +43,8 @@ function loadSaved(){
     lookForArray()
     myLibrary1.forEach(books=>{
         createBooks.DomInsert(books)
-        toogleStatus(books)
-        removeBooks(books)   
+        toogleStatus()
+        removeBooks()   
     })
 }
 const createBooks=setOnLibrary()
@@ -67,7 +59,7 @@ const createBooks=setOnLibrary()
           let butto2 = document.createElement("button") 
           let white=document.createElement("div")
            book.textContent=books.title
-          book.id = myLibrary1.indexOf(books)
+          book.id = books.title
           book.className="book"
            butto.id="btn"
            butto2.id="btn2"
@@ -79,7 +71,7 @@ const createBooks=setOnLibrary()
        let information=document.createElement("p") 
        let information2=document.createElement("p")
        let information3=document.createElement("p") 
-       information3.id=-myLibrary1.indexOf(books)-1
+       information3.id=`${books.title}1`
            information.textContent=`Author:${books.author}`
            information2.textContent=`Pages:${books.pages}`
            information3.textContent=`Status:Did not read it yet.`
@@ -98,19 +90,27 @@ return{
     DomInsert,
 }
     }
-    function removeBooks(books){
-        btnn=document.querySelectorAll("#btn")
-       btnn.forEach(function (btnn){ btnn.addEventListener("click",function(){
-       let remo=document.getElementById(myLibrary1.indexOf(books).toString())
+    function removeBooks(){
+       let btnn=document.querySelectorAll("#btn")
+        btnn.forEach(function (btnn) {
+            btnn.addEventListener("click", function (e) {
+                console.log(e.path[1].id)
+                
+             
+                   
+       let remo=document.getElementById(e.path[1].id)
        remo.remove()
-       myLibrary1.splice(myLibrary1.indexOf(books),1)
+       myLibrary1=myLibrary1.filter(book=>book.title!==e.path[1].id)
        saveArray()
    })})
 }
-    function toogleStatus(books){
-        let information3=document.getElementById(`${-myLibrary1.indexOf(books)-1}`)
+    function toogleStatus(){
+      
         let btnn2=document.querySelectorAll("#btn2")
-    btnn2.forEach(function (btnn2){ btnn2.addEventListener("click",function(){
+        btnn2.forEach(function (btnn2) {
+            btnn2.addEventListener("click", function (e) {
+                console.log(e.path[1].id)
+          let information3=document.getElementById(`${e.path[1].id}1`)
        if(information3.textContent===`Status:Did not read it yet.`){
            information3.textContent=`Status:Already read it!`
        }
@@ -119,7 +119,9 @@ return{
         information3.textContent=`Status:Did not read it yet.`
        }
    })})
-}
+    }
+
 
     
-  
+toogleStatus()
+ removeBooks()

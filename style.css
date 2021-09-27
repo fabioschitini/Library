@@ -12,32 +12,29 @@ h1 {
   height: 25rem;
   border: 10px solid red;
 }
-button {
-}
+
 #btn {
-  position: relative;
-  left: 50%;
-  top: 60%;
   background-color: black;
   color: darkgray;
   border-radius: 20px 16px 12px 32px;
 }
 #btn2 {
-  position: relative;
-  left: -15%;
-  top: 60%;
   background-color: black;
   color: darkgray;
   border-radius: 20px 16px 12px 32px;
 }
 #new {
   position: relative;
-    height: 20px;
-    font-size: 20px;
-    font-style: italic;
-    border-radius: 22px 16px 12px 12px;
-    background-color: crimson;
+  height: 20px;
+  font-size: 20px;
+  font-style: italic;
+  border-radius: 22px 16px 12px 12px;
+  background-color: crimson;
+  cursor: pointer;
 }
+#new:hover {
+  color: red;
+  box-shadow: orangered;
 }
 p {
   font-size: 25px;
@@ -50,9 +47,6 @@ input:valid {
 }
 input:invalid {
   border: 2px dashed red;
-}
-input:invalid:required {
-  background-image: linear-gradient(to right, black, rgb(130, 206, 130));
 }
 
 body {
@@ -69,6 +63,7 @@ body {
   position: absolute;
 }
 .book {
+  margin: 60px;
   width: 280px;
   height: 420px;
   top: 50%;
@@ -85,6 +80,8 @@ body {
 }
 
 .white {
+  position: relative;
+  top: 60px;
   height: 52px;
   width: 274px;
   top: 100px;
