@@ -1,5 +1,5 @@
 
-let myLibrary1 = [0];
+let myLibrary1 = [];
   window.addEventListener('load', loadSaved);
   
 const Library=(title,author,pages)=>{
@@ -36,21 +36,25 @@ function saveArray(){
         }
 
 function lookForArray(){
-    let myLibrary_deserialized=JSON.parse(localStorage.getItem("myLibrary1"))
+    let myLibrary_deserialized = JSON.parse(localStorage.getItem("myLibrary1"))
+    if (myLibrary_deserialized) {
         myLibrary1=myLibrary_deserialized
+    }
+
 }
 function loadSaved() {
-    console.log(myLibrary1)
-    if (myLibrary1) {
+
+    
     console.log(myLibrary1)
         lookForArray()
-            console.log(myLibrary1)
+        console.log('myLibrary1')
+        console.log(myLibrary1)
     myLibrary1.forEach(books=>{
         createBooks.DomInsert(books)
         toogleStatus()
         removeBooks()   
     })  
-    }
+    
     
 }
 const createBooks=setOnLibrary()
