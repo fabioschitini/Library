@@ -39,9 +39,12 @@ function lookForArray(){
     let myLibrary_deserialized=JSON.parse(localStorage.getItem("myLibrary1"))
         myLibrary1=myLibrary_deserialized
 }
-function loadSaved(){
+function loadSaved() {
+    console.log(myLibrary1)
     if (myLibrary1) {
-      lookForArray()
+    console.log(myLibrary1)
+        lookForArray()
+            console.log(myLibrary1)
     myLibrary1.forEach(books=>{
         createBooks.DomInsert(books)
         toogleStatus()
