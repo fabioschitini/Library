@@ -6,7 +6,7 @@ A book collection manager, where you can add, remove books.
 From The Odin Project's curriculum:
 https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/library
 
-link Live preview:https://fabioschitini.github.io/ETCH-A-SKETCH/
+link Live preview:https://fabioschitini.github.io/Library/
 
 
 # Built with
