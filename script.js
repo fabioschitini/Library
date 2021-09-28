@@ -40,12 +40,15 @@ function lookForArray(){
         myLibrary1=myLibrary_deserialized
 }
 function loadSaved(){
-    lookForArray()
+    if (myLibrary1) {
+      lookForArray()
     myLibrary1.forEach(books=>{
         createBooks.DomInsert(books)
         toogleStatus()
         removeBooks()   
-    })
+    })  
+    }
+    
 }
 const createBooks=setOnLibrary()
 
