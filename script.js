@@ -1,5 +1,5 @@
 
-let myLibrary1 = [];
+let myLibrary1 = [0];
   window.addEventListener('load', loadSaved);
   
 const Library=(title,author,pages)=>{
